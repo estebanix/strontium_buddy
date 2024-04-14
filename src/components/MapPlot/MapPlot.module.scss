@@ -1,0 +1,19 @@
+.mapPlotContainer {
+    width: 50%;
+    height: calc(100vh - 88px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: auto;
+  }
+  
+  .mapPlotContainer :hover .shape {
+    opacity: 0.4;
+    filter: saturate(35%);
+  }
+  
+  .mapPlotContainer .shape:hover {
+    opacity: 1;
+    filter: saturate(100%);
+  }
+  
