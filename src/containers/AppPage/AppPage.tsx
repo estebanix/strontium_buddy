@@ -1,5 +1,5 @@
 import { HeaderMenu } from "../../components/HeaderMenu";
-import { Button } from "../../components/Button";
+import { DataUploader } from "../../components/DataUploader";
 import { Section } from "../../components/Section";
 
 import styles from "./AppPage.module.scss";
@@ -9,7 +9,7 @@ export const AppPage = () => {
     <div className={styles.appPageContainer}>
       <HeaderMenu />
       <Section>
-        <Button text="Click" colorVariant="secondary" />
+        <DataUploader />
       </Section>
     </div>
   );
