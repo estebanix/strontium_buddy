@@ -1,6 +1,7 @@
 import { HeaderMenu } from "../../components/HeaderMenu";
 import { DataUploader } from "../../components/DataUploader";
 import { Section } from "../../components/Section";
+import { DescriptiveTable } from "../../components/DescriptiveTable";
 
 import styles from "./AppPage.module.scss";
 
@@ -10,6 +11,7 @@ export const AppPage = () => {
       <HeaderMenu />
       <Section>
         <DataUploader />
+        <DescriptiveTable />
       </Section>
     </div>
   );
