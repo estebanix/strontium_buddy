@@ -1,0 +1,22 @@
+.button{
+    width: 200px;
+    height: 40px;
+    border: 2px solid #3d4144;
+    font-size: 1.14em;
+    transition: 0.35s ease-in-out;
+}
+
+.button:hover {
+    background-color: #3d4144;
+    color: white; 
+}
+
+.primary {
+    background-color: #3d4144;
+    color: white;
+}
+
+.secondary {
+    background-color: transparent; 
+    color: #3d4144;
+}
