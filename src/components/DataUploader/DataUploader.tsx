@@ -1,30 +1,24 @@
 import { Button } from "../Button";
-import { useState, ChangeEvent, useEffect } from "react";
+import { useContext, ChangeEvent, useEffect } from "react";
+import { Context, DataRow } from "../../context/Context";
 import * as XLSX from "xlsx";
 
 import styles from "./DataUploader.module.scss";
 
-interface DataRow {
-  [key: string]: string | number;
-}
-
 export const DataUploader = () => {
-  const [data, setData] = useState<DataRow[]>([]);
+  const { data, setData } = useContext(Context);
 
   useEffect(() => {
     if (data.length > 0) {
       const sum = data.reduce((accumulator, current) => {
-        const strontiumValue = parseFloat(current["Strontium Value"] as string) || 0;
+        const strontiumValue =
+          parseFloat(current["Strontium Value"] as string) || 0;
         return accumulator + strontiumValue;
       }, 0);
       const mean = (sum / data.length).toFixed(4);
       console.log("Mean of Strontium Values:", mean);
     }
   }, [data]);
-  
-  
-  
-
 
   const handleFileUpload = (e: ChangeEvent<HTMLInputElement>) => {
     const reader = new FileReader();
@@ -37,11 +31,11 @@ export const DataUploader = () => {
       const parsedData = XLSX.utils.sheet_to_json(sheet) as DataRow[];
       setData(parsedData);
     };
-  }
+  };
 
   const handleButtonClick = () => {
     document.getElementById("fileInput")!.click();
-  }
+  };
 
   const handleTableDisplay = () => {
     if (data.length > 0) {
@@ -66,22 +60,22 @@ export const DataUploader = () => {
         </table>
       );
     }
-  }
+  };
 
   return (
     <div className={styles.dataUploaderContainer}>
-       <input 
+      <input
         id="fileInput"
-        type="file" 
-        accept=".xlsx, .xls" 
-        onChange={handleFileUpload} 
-        style={{ display: "none" }} 
+        type="file"
+        accept=".xlsx, .xls"
+        onChange={handleFileUpload}
+        style={{ display: "none" }}
       />
 
-      <Button 
-        colorVariant="secondary" 
-        text="Upload" 
-        reaction={handleButtonClick} 
+      <Button
+        colorVariant="secondary"
+        text="Upload"
+        reaction={handleButtonClick}
       />
 
       {handleTableDisplay()}
