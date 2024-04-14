@@ -1,22 +1,26 @@
-.button{
+:root {
+    --primary-color: #3d4144;
+}
+
+.button {
     width: 200px;
     height: 40px;
-    border: 2px solid #3d4144;
+    border: 2px solid var(--primary-color);
     font-size: 1.14em;
     transition: 0.35s ease-in-out;
 }
 
 .button:hover {
-    background-color: #3d4144;
+    background-color: var(--primary-color);
     color: white; 
 }
 
 .primary {
-    background-color: #3d4144;
+    background-color: var(--primary-color);
     color: white;
 }
 
 .secondary {
     background-color: transparent; 
-    color: #3d4144;
+    color: var(--primary-color);
 }
