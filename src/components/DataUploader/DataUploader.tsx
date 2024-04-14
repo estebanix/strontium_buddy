@@ -1,27 +1,31 @@
 import { Button } from "../Button";
-import { useState } from "react";
+import { useState, ChangeEvent } from "react";
 import * as XLSX from "xlsx";
 
 import styles from "./DataUploader.module.scss";
 
-export const DataUploader = () => {
-  const [data, setData] = useState([]);
+interface DataRow {
+  [key: string]: string | number;
+}
 
-  const handleFileUpload = (e) => {
+export const DataUploader = () => {
+  const [data, setData] = useState<DataRow[]>([]);
+
+  const handleFileUpload = (e: ChangeEvent<HTMLInputElement>) => {
     const reader = new FileReader();
-    reader.readAsBinaryString(e.target.files[0]);
+    reader.readAsBinaryString(e.target.files![0]);
     reader.onload = (e) => {
-      const data = e.target.result;
+      const data = e.target!.result as string;
       const workbook = XLSX.read(data, { type: "binary" });
       const sheetName = workbook.SheetNames[0];
       const sheet = workbook.Sheets[sheetName];
-      const parsedData = XLSX.utils.sheet_to_json(sheet);
+      const parsedData = XLSX.utils.sheet_to_json(sheet) as DataRow[];
       setData(parsedData);
     };
   }
 
   const handleButtonClick = () => {
-    document.getElementById("fileInput").click();
+    document.getElementById("fileInput")!.click();
   }
 
   const handleTableDisplay = () => {
