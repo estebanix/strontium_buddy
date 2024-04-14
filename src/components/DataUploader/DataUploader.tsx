@@ -1,5 +1,5 @@
 import { Button } from "../Button";
-import { useState, ChangeEvent } from "react";
+import { useState, ChangeEvent, useEffect } from "react";
 import * as XLSX from "xlsx";
 
 import styles from "./DataUploader.module.scss";
@@ -10,6 +10,21 @@ interface DataRow {
 
 export const DataUploader = () => {
   const [data, setData] = useState<DataRow[]>([]);
+
+  useEffect(() => {
+    if (data.length > 0) {
+      const sum = data.reduce((accumulator, current) => {
+        const strontiumValue = parseFloat(current["Strontium Value"] as string) || 0;
+        return accumulator + strontiumValue;
+      }, 0);
+      const mean = (sum / data.length).toFixed(4);
+      console.log("Mean of Strontium Values:", mean);
+    }
+  }, [data]);
+  
+  
+  
+
 
   const handleFileUpload = (e: ChangeEvent<HTMLInputElement>) => {
     const reader = new FileReader();
