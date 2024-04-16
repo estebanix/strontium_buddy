@@ -7,7 +7,7 @@ import { options } from "../../utils/constans/plotOptions";
 import styles from "./DropDown.module.scss";
 
 export const DropDown = () => {
-  const { currentPlot, setCurrentPlot } = useContext(Context);
+  const { setCurrentPlot } = useContext(Context);
 
   const handleSelection = (selectedOption: OptionsProps | null) => {
     if (selectedOption) {
@@ -20,7 +20,6 @@ export const DropDown = () => {
   return (
     <div className={styles.dropDownContainer}>
       <Select options={options} onChange={handleSelection} />
-      {currentPlot?.label}
     </div>
   );
 };

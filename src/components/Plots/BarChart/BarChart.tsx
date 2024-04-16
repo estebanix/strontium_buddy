@@ -1,0 +1,50 @@
+import React, { useContext } from "react";
+import { Context } from "../../../context/Context";
+
+interface BarChartProps {
+  width: number;
+  height: number;
+}
+
+export const BarChart: React.FC<BarChartProps> = ({ width, height }) => {
+  const { data, currentPlot } = useContext(Context);
+
+  const countByCategory: { [key: string]: number } = data.reduce((acc, item) => {
+    const category = currentPlot?.value === "sex" ? item.Sex : item["Age Group"];
+    acc[category] = (acc[category] || 0) + 1; // Ensure the value is numeric
+    return acc;
+  }, {} as { [key: string]: number }); 
+
+  const categories = Object.keys(countByCategory);
+  const maxCount = Math.max(...Object.values(countByCategory));
+  const barColors = currentPlot?.value === "sex" ? ["blue", "pink"] : ["green", "orange"];
+  const totalBarWidth = width / (categories.length + 1); // Adjusted width to center bars
+  const barWidth = totalBarWidth * 0.8; 
+
+  return (
+    <svg width={width} height={height}>
+      {categories.map((category, index) => (
+        <g key={index} transform={`translate(${totalBarWidth * (index + 1)}, 0)`}>
+          <rect
+            x={-barWidth / 2}
+            y={height - (height * countByCategory[category]) / maxCount}
+            width={barWidth}
+            height={(height * countByCategory[category]) / maxCount}
+            fill={barColors[index % barColors.length]}
+          />
+          <text
+            x={0}
+            y={height + 20}
+            textAnchor="middle"
+            fontSize="12px"
+          >
+            {category}
+          </text>
+        </g>
+      ))}
+      <text x={width / 2} y={height + 40} textAnchor="middle" fontSize="16px">
+        {currentPlot?.label}
+      </text>
+    </svg>
+  );
+};

@@ -1,6 +1,11 @@
 .plotContainerContainer {
     width: 80%;
-    height: 200px;
+    height: auto;
     background-color: white;
     margin: 2em auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2em 0;
+    gap: 2em;
 }
