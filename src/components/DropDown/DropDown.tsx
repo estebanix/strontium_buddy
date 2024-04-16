@@ -1,11 +1,9 @@
 import Select from "react-select";
+import { useContext } from "react";
+import { Context } from "../../context/Context";
+import { OptionsProps } from "../../utils/types/types";
 
 import styles from "./DropDown.module.scss";
-
-interface OptionsProps {
-  value: string;
-  label: string;
-}
 
 export const DropDown = () => {
   const options = [
@@ -15,13 +13,20 @@ export const DropDown = () => {
     { value: "histogram", label: "Histogram" },
   ];
 
+  const { currentPlot, setCurrentPlot } = useContext(Context);
+
   const handleSelection = (selectedOption: OptionsProps | null) => {
-    console.log(selectedOption);
+    if (selectedOption) {
+      setCurrentPlot(selectedOption);
+    } else {
+        setCurrentPlot({ value: "", label: "" });
+    }
   };
 
   return (
     <div className={styles.dropDownContainer}>
       <Select options={options} onChange={handleSelection} />
+      {currentPlot?.label}
     </div>
   );
 };

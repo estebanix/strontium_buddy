@@ -1,6 +1,7 @@
 import { Button } from "../Button";
 import { useContext, ChangeEvent, useEffect } from "react";
-import { Context, DataRow } from "../../context/Context";
+import { Context } from "../../context/Context";
+import { DataRow } from "../../utils/types/types";
 import * as XLSX from "xlsx";
 
 import styles from "./DataUploader.module.scss";
