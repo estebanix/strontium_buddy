@@ -7,17 +7,17 @@ interface BarChartProps {
 }
 
 export const BarChart: React.FC<BarChartProps> = ({ width, height }) => {
-  const { data, currentPlot } = useContext(Context);
+  const { data, currentGroupBy } = useContext(Context);
 
   const countByCategory: { [key: string]: number } = data.reduce((acc, item) => {
-    const category = currentPlot?.value === "sex" ? item.Sex : item["Age Group"];
+    const category = currentGroupBy?.value === "sex" ? item.Sex : item["Age Group"];
     acc[category] = (acc[category] || 0) + 1; // Ensure the value is numeric
     return acc;
   }, {} as { [key: string]: number }); 
 
   const categories = Object.keys(countByCategory);
   const maxCount = Math.max(...Object.values(countByCategory));
-  const barColors = currentPlot?.value === "sex" ? ["blue", "pink"] : ["green", "orange"];
+  const barColors = currentGroupBy?.value === "sex" ? ["blue", "pink"] : ["green", "orange"];
   const totalBarWidth = width / (categories.length + 1); // Adjusted width to center bars
   const barWidth = totalBarWidth * 0.8; 
 
@@ -43,7 +43,7 @@ export const BarChart: React.FC<BarChartProps> = ({ width, height }) => {
         </g>
       ))}
       <text x={width / 2} y={height + 40} textAnchor="middle" fontSize="16px">
-        {currentPlot?.label}
+        {currentGroupBy?.label}
       </text>
     </svg>
   );

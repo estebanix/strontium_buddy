@@ -7,13 +7,13 @@ import { options } from "../../utils/constans/plotOptions";
 import styles from "./DropDown.module.scss";
 
 export const DropDown = () => {
-  const { setCurrentPlot } = useContext(Context);
+  const { setCurrentGroupBy } = useContext(Context);
 
   const handleSelection = (selectedOption: OptionsProps | null) => {
     if (selectedOption) {
-      setCurrentPlot(selectedOption);
+      setCurrentGroupBy(selectedOption);
     } else {
-        setCurrentPlot({ value: "", label: "" });
+        setCurrentGroupBy({ value: "", label: "" });
     }
   };
 
