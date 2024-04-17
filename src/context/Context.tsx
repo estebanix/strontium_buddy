@@ -8,15 +8,20 @@ interface ContextProviderProps {
 export interface ContextType {
   data: DataRow[];
   setData: (value: DataRow[]) => void;
-  currentGroupBy: OptionsProps | null; // Allow null
-  setCurrentGroupBy: (value: OptionsProps | null) => void; 
+  currentGroupBy: OptionsProps | null;
+  setCurrentGroupBy: (value: OptionsProps | null) => void;
+  currentPlot: string;
+  setCurrentPlot: (value: string) => void;
 }
 
 export const Context = createContext<ContextType>({} as ContextType);
 
 const ContextProvider = (props: ContextProviderProps) => {
   const [data, setData] = useState<DataRow[]>([]);
-  const [currentGroupBy, setCurrentGroupBy] = useState<OptionsProps | null>(null);
+  const [currentGroupBy, setCurrentGroupBy] = useState<OptionsProps | null>(
+    null
+  );
+  const [currentPlot, setCurrentPlot] = useState("bar");
 
   return (
     <Context.Provider
@@ -24,7 +29,9 @@ const ContextProvider = (props: ContextProviderProps) => {
         data,
         setData,
         currentGroupBy,
-        setCurrentGroupBy
+        setCurrentGroupBy,
+        currentPlot,
+        setCurrentPlot,
       }}
     >
       {props.children}
