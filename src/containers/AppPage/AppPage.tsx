@@ -6,6 +6,7 @@ import { PlotContainer } from "../../components/PlotContainer";
 import { Container } from "../../components/Container";
 import { useContext } from "react";
 import { Context } from "../../context/Context";
+import { ColumnRender } from "../../components/ColumnRender";
 
 import styles from "./AppPage.module.scss";
 
@@ -23,7 +24,7 @@ export const AppPage = () => {
           </>
         )}
         <Container>
-          
+          <ColumnRender renderData={data} />
         </Container>
       </Section>
     </div>

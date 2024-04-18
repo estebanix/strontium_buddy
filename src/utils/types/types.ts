@@ -4,5 +4,8 @@ export interface OptionsProps {
   }
   
   export interface DataRow {
-    [key: string]: string | number;
+    Individual: string;
+    Sex: string;
+    "Age Group": string;
+    "Strontium Value": string | number;
   }
