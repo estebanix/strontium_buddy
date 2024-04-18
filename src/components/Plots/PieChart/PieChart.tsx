@@ -11,7 +11,7 @@ export const PieChart: React.FC<PieChartProps> = ({ width, height }) => {
 
   const countByCategory: { [key: string]: number } = data.reduce((acc, item) => {
     const category = currentGroupBy?.value === "sex" ? item.Sex : item["Age Group"];
-    acc[category] = (acc[category] || 0) + 1; // Ensure the value is numeric
+    acc[category] = (acc[category] || 0) + 1; 
     return acc;
   }, {} as { [key: string]: number });
 

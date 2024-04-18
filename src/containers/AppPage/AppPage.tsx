@@ -3,6 +3,7 @@ import { DataUploader } from "../../components/DataUploader";
 import { Section } from "../../components/Section";
 import { DescriptiveTable } from "../../components/DescriptiveTable";
 import { PlotContainer } from "../../components/PlotContainer";
+import { Container } from "../../components/Container";
 import { useContext } from "react";
 import { Context } from "../../context/Context";
 
@@ -21,6 +22,9 @@ export const AppPage = () => {
             <PlotContainer />
           </>
         )}
+        <Container>
+          
+        </Container>
       </Section>
     </div>
   );
