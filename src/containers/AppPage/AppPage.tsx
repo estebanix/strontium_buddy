@@ -7,6 +7,8 @@ import { Container } from "../../components/Container";
 import { useContext } from "react";
 import { Context } from "../../context/Context";
 import { ColumnRender } from "../../components/ColumnRender";
+import { MapPlot } from "../../components/MapPlot";
+import { data as dataMap } from "../HomePage/data";
 
 import styles from "./AppPage.module.scss";
 
@@ -25,6 +27,7 @@ export const AppPage = () => {
         )}
         <Container>
           <ColumnRender renderData={data} />
+          <MapPlot data={dataMap} width={350} height={350} />
         </Container>
       </Section>
     </div>

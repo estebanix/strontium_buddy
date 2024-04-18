@@ -13,7 +13,7 @@ export const MapPlot = ({ width, height, data }: MapProps) => {
   const projection = d3
     .geoMercator()
     .scale(width)
-    .center([40, 40]);
+    .center([60, 48]);
 
   const geoPathGenerator = d3.geoPath().projection(projection);
 

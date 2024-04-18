@@ -2,21 +2,10 @@
     display: flex;
     flex-direction: column;
     gap: 1em;
-    height: auto;
+    height: 100%;
     overflow-y: auto;
 }
 
-.columnRenderBox{
-    width: 200px;
-    height: 40px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border: 1px solid #3d4144;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.columnRenderBox:hover {
-    background-color: #3d4144;;
-}
+.columnRenderContainer::-webkit-scrollbar {
+    display: none;
+  }
