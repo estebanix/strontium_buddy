@@ -12,6 +12,8 @@ export interface ContextType {
   setCurrentGroupBy: (value: OptionsProps | null) => void;
   currentPlot: string;
   setCurrentPlot: (value: string) => void;
+  mapCurrentIndividual: string;
+  setMapCurrentIndividual: (value: string) => void;
 }
 
 export const Context = createContext<ContextType>({} as ContextType);
@@ -21,7 +23,8 @@ const ContextProvider = (props: ContextProviderProps) => {
   const [currentGroupBy, setCurrentGroupBy] = useState<OptionsProps | null>(
     null
   );
-  const [currentPlot, setCurrentPlot] = useState("bar");
+  const [currentPlot, setCurrentPlot] = useState("");
+  const [mapCurrentIndividual, setMapCurrentIndividual] = useState("");
 
   return (
     <Context.Provider
@@ -32,6 +35,8 @@ const ContextProvider = (props: ContextProviderProps) => {
         setCurrentGroupBy,
         currentPlot,
         setCurrentPlot,
+        mapCurrentIndividual,
+        setMapCurrentIndividual
       }}
     >
       {props.children}

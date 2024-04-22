@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useContext } from "react";
 import { BoxRow } from "../BoxRow";
+import { Context } from "../../context/Context";
 
 import styles from "./Card.module.scss";
 
@@ -16,8 +17,17 @@ export const Card: React.FC<CardProps> = ({
   ageGroup,
   srValue,
 }) => {
+  const { mapCurrentIndividual, setMapCurrentIndividual } = useContext(Context);
+
+  const handleIndividual = (individual: string) => {
+    setMapCurrentIndividual(individual);
+  };
+
   return (
-    <div className={styles.cardContainer}>
+    <div
+      className={`${styles.cardContainer} ${mapCurrentIndividual === title ? styles.activeIndividual: ""}`}
+      onClick={() => handleIndividual(title)}
+    >
       <BoxRow gapWidth={20}>
         <p>{title}</p>
         <p>{sex}</p>
