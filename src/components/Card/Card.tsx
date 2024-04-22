@@ -9,6 +9,7 @@ interface CardProps {
   sex: string;
   ageGroup?: string;
   srValue?: string | number;
+  reactive: boolean;
 }
 
 export const Card: React.FC<CardProps> = ({
@@ -16,22 +17,17 @@ export const Card: React.FC<CardProps> = ({
   sex,
   ageGroup,
   srValue,
+  reactive,
 }) => {
   const { mapCurrentIndividual, setMapCurrentIndividual } = useContext(
     Context
   );
 
-  const handleIndividual = (individual: string) => {
-    if (mapCurrentIndividual === individual) {
-      setMapCurrentIndividual("");
-    } else {
-      setMapCurrentIndividual(individual);
-    }
-  };
-
-  const isActive = mapCurrentIndividual === title;
-
   useEffect(() => {
+    if (!reactive) {
+      return;
+    }
+
     const handleClickOutside = (event: MouseEvent) => {
       const target = event.target as HTMLElement;
       if (!target.closest(`.${styles.cardContainer}`)) {
@@ -44,7 +40,21 @@ export const Card: React.FC<CardProps> = ({
     return () => {
       document.body.removeEventListener("click", handleClickOutside);
     };
-  }, [setMapCurrentIndividual]);
+  }, [setMapCurrentIndividual, reactive]);
+
+  const handleIndividual = (individual: string) => {
+    if (!reactive) {
+      return;
+    }
+
+    if (mapCurrentIndividual === individual) {
+      setMapCurrentIndividual("");
+    } else {
+      setMapCurrentIndividual(individual);
+    }
+  };
+
+  const isActive = mapCurrentIndividual === title;
 
   return (
     <div

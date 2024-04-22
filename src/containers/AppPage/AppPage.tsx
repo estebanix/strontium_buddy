@@ -15,7 +15,7 @@ import styles from "./AppPage.module.scss";
 export const AppPage = () => {
   const { data, mapCurrentIndividual } = useContext(Context);
 
-  console.log(mapCurrentIndividual)
+  console.log(mapCurrentIndividual);
   return (
     <div className={styles.appPageContainer}>
       <HeaderMenu />
@@ -26,7 +26,7 @@ export const AppPage = () => {
             <DescriptiveTable />
             <PlotContainer />
             <Container>
-              <ColumnRender renderData={data} />
+              <ColumnRender renderData={data} dynamic={true} />
               <MapPlot data={dataMap} width={350} height={350} />
             </Container>
           </>
