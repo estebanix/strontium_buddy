@@ -1,0 +1,23 @@
+[
+    {
+      "id": 1,
+      "title": "Getting Started",
+      "content": "Welcome to our application! This guide will walk you through the basics of getting started with our software. Whether you're a new user or returning, we'll help you get up and running quickly."
+    },
+    {
+      "id": 2,
+      "title": "Data Importing",
+      "content": "Importing data is a crucial step in using our application effectively. In this section, we'll cover how to import your data into our system and ensure it's properly formatted for analysis and visualization."
+    },
+    {
+      "id": 3,
+      "title": "Visualization",
+      "content": "Visualizing your data is key to gaining insights and making informed decisions. In this section, we'll explore the various visualization tools and features available in our application, helping you present your data in a meaningful way."
+    },
+    {
+      "id": 4,
+      "title": "Comparing",
+      "content": "Comparing data sets can provide valuable insights into trends, patterns, and anomalies. In this section, we'll show you how to compare different data sets, perform statistical analysis, and interpret the results to make informed decisions."
+    }
+  ]
+  

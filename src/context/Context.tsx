@@ -14,6 +14,8 @@ export interface ContextType {
   setCurrentPlot: (value: string) => void;
   mapCurrentIndividual: string;
   setMapCurrentIndividual: (value: string) => void;
+  siteValue: number;
+  setSiteValue: (value: number) => void;
 }
 
 export const Context = createContext<ContextType>({} as ContextType);
@@ -25,6 +27,7 @@ const ContextProvider = (props: ContextProviderProps) => {
   );
   const [currentPlot, setCurrentPlot] = useState("");
   const [mapCurrentIndividual, setMapCurrentIndividual] = useState("");
+  const [siteValue, setSiteValue] = useState(1);
 
   return (
     <Context.Provider
@@ -36,7 +39,9 @@ const ContextProvider = (props: ContextProviderProps) => {
         currentPlot,
         setCurrentPlot,
         mapCurrentIndividual,
-        setMapCurrentIndividual
+        setMapCurrentIndividual,
+        siteValue,
+        setSiteValue
       }}
     >
       {props.children}

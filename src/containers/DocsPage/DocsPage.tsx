@@ -12,7 +12,7 @@ export const DocsPage = () => {
                 <HeaderMenu />
                 <BoxRow>
                     <SideMenu />
-                    <DocsContainer />
+                    <DocsContainer id={3} />
                 </BoxRow>
                 <Footer />
         </div>
