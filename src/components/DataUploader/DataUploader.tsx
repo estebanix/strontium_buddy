@@ -1,13 +1,16 @@
 import { Button } from "../Button";
-import { useContext, ChangeEvent, useEffect } from "react";
+import { useContext, ChangeEvent, useEffect, useState } from "react";
 import { Context } from "../../context/Context";
 import { DataRow } from "../../utils/types/types";
 import * as XLSX from "xlsx";
+import ReactPaginate from "react-paginate";
 
 import styles from "./DataUploader.module.scss";
 
 export const DataUploader = () => {
   const { data, setData } = useContext(Context);
+  const [pageNumber, setPageNumber] = useState(0);
+  const rowsPerPage = 10;
 
   useEffect(() => {
     if (data.length > 0) {
@@ -38,30 +41,23 @@ export const DataUploader = () => {
     document.getElementById("fileInput")!.click();
   };
 
-  const handleTableDisplay = () => {
-    if (data.length > 0) {
-      return (
-        <table className={styles.table}>
-          <thead>
-            <tr>
-              {Object.keys(data[0]).map((key) => (
-                <th key={key}>{key}</th>
-              ))}
-            </tr>
-          </thead>
-          <tbody>
-            {data.map((row, index) => (
-              <tr key={index}>
-                {Object.values(row).map((value, index) => (
-                  <td key={index}>{value}</td>
-                ))}
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      );
-    }
+  const handlePageChange = ({ selected }: { selected: number }) => {
+    setPageNumber(selected);
   };
+
+  const renderTableRows = () => {
+    const startIndex = pageNumber * rowsPerPage;
+    const endIndex = startIndex + rowsPerPage;
+    return data.slice(startIndex, endIndex).map((row, index) => (
+      <tr key={index}>
+        {Object.values(row).map((value, index) => (
+          <td key={index}>{value}</td>
+        ))}
+      </tr>
+    ));
+  };
+
+  const pageCount = Math.ceil(data.length / rowsPerPage);
 
   return (
     <div className={styles.dataUploaderContainer}>
@@ -79,7 +75,37 @@ export const DataUploader = () => {
         reaction={handleButtonClick}
       />
 
-      {handleTableDisplay()}
+      {data.length > 0 && (
+        <>
+          <table className={styles.table}>
+            <thead>
+              <tr>
+                {Object.keys(data[0]).map((key) => (
+                  <th key={key}>{key}</th>
+                ))}
+              </tr>
+            </thead>
+            <tbody>{renderTableRows()}</tbody>
+          </table>
+          <ReactPaginate
+            pageCount={pageCount}
+            pageRangeDisplayed={5}
+            marginPagesDisplayed={2}
+            onPageChange={handlePageChange}
+            containerClassName={styles.paginationContainer}
+            activeClassName={styles.activePage}
+            previousLabel={"Previous"}
+            nextLabel={"Next"}
+            previousClassName={styles.paginationButton}
+            nextClassName={styles.paginationButton}
+            pageClassName={styles.paginationButton}
+            breakClassName={styles.paginationButton}
+            pageLinkClassName={styles.paginationLink}
+            previousLinkClassName={styles.paginationLink}
+            nextLinkClassName={styles.paginationLink}
+          />
+        </>
+      )}
     </div>
   );
 };
