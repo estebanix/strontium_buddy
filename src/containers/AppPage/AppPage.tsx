@@ -8,6 +8,7 @@ import { useContext } from "react";
 import { Context } from "../../context/Context";
 import { ColumnRender } from "../../components/ColumnRender";
 import { MapPlot } from "../../components/MapPlot";
+import { Footer } from "../../components/Footer";
 import { data as dataMap } from "../HomePage/data";
 
 import styles from "./AppPage.module.scss";
@@ -32,6 +33,7 @@ export const AppPage = () => {
           </>
         )}
       </Section>
+      <Footer />
     </div>
   );
 };

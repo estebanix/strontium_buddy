@@ -6,7 +6,7 @@ import styles from "./Card.module.scss";
 
 interface CardProps {
   title: string;
-  sex: string;
+  sex?: string;
   ageGroup?: string;
   srValue?: string | number;
   reactive: boolean;

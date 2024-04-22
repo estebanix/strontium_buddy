@@ -7,7 +7,7 @@ export const DocsPage = () => {
   return (
     <div className={styles.docsPageContainer}>
       <HeaderMenu />
-        <SideMenu />
+      <SideMenu />
     </div>
   );
 };

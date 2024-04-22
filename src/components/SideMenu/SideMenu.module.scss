@@ -1,9 +1,9 @@
 .sideMenuContainer {
-    width: 25%;
-    min-height: 90%;
-    background-color: gray;
+    width: 15%;
+    height: 90vh;
     border-radius: 20px;
     display: flex;
     flex-direction: column;
-    padding: 1em 2.5em;
+    align-items: center;
+    gap: 1em;
 }
