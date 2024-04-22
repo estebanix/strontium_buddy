@@ -3,12 +3,12 @@ import { ReactNode } from "react";
 
 interface BoxColumnProps {
     children: ReactNode;
-    gapWidth?: number;
+    gapHeight?: number;
 }
 
-export const BoxColumn: React.FC<BoxColumnProps> = ({ children, gapWidth }) => {
+export const BoxColumn: React.FC<BoxColumnProps> = ({ children, gapHeight }) => {
     const choosedGap = {
-        gap: gapWidth ? `${gapWidth}px` : '0',
+        gap: gapHeight ? `${gapHeight}px` : '0',
     };
 
     return (
