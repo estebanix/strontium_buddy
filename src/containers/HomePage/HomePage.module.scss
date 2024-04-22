@@ -1,5 +1,7 @@
 .homePageContainer {
     width: 100%;
     min-height: 100vh;
-    background-color: #F8F5E5;
+    background-image: url("./../../../public/images/homePage.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
 }

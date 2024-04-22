@@ -1,5 +1,5 @@
-import React, { useContext } from "react";
-import { BoxColumn} from "../BoxColumn";
+import React, { useContext, useEffect } from "react";
+import { BoxColumn } from "../BoxColumn";
 import { Context } from "../../context/Context";
 
 import styles from "./Card.module.scss";
@@ -17,17 +17,40 @@ export const Card: React.FC<CardProps> = ({
   ageGroup,
   srValue,
 }) => {
-  const { mapCurrentIndividual, setMapCurrentIndividual } = useContext(Context);
+  const { mapCurrentIndividual, setMapCurrentIndividual } = useContext(
+    Context
+  );
 
   const handleIndividual = (individual: string) => {
-    setMapCurrentIndividual(individual);
+    if (mapCurrentIndividual === individual) {
+      setMapCurrentIndividual("");
+    } else {
+      setMapCurrentIndividual(individual);
+    }
   };
 
   const isActive = mapCurrentIndividual === title;
 
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      const target = event.target as HTMLElement;
+      if (!target.closest(`.${styles.cardContainer}`)) {
+        setMapCurrentIndividual("");
+      }
+    };
+
+    document.body.addEventListener("click", handleClickOutside);
+
+    return () => {
+      document.body.removeEventListener("click", handleClickOutside);
+    };
+  }, [setMapCurrentIndividual]);
+
   return (
     <div
-      className={`${styles.cardContainer} ${isActive ? styles.activeIndividual : ""}`}
+      className={`${styles.cardContainer} ${
+        isActive ? styles.activeIndividual : ""
+      }`}
       onClick={() => handleIndividual(title)}
     >
       <BoxColumn gapHeight={20}>
