@@ -8,12 +8,12 @@
     align-items: center;
     border-radius: 5px;
     cursor: pointer;
-    border: 1px solid #3d4144;
+    border: 1px solid #3C3C4380;
     transition: 0.8s ease-in-out;
 }
 
 .cardContainer:hover, .activeIndividual {
-    background-color: lightcoral;
+    background-color: #454ce175;
     color: white;
 }
 

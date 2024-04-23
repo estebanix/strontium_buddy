@@ -3,10 +3,14 @@
     height: 60px;
     background-color: transparent;
     color: #3C3C43;
-    background-color: aqua;
+    border-bottom: 1px solid #3C3C4320;
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    padding: 0 2em;
+}
+
+.headerOptionsBox{
+  margin-left: auto;
 }
 
 .headerMenuLink {
@@ -15,7 +19,8 @@
     cursor: pointer;
     padding-bottom: 3px;
     color: #3d4144;
-    font-size: 1.1em;
+    font-size: 1em;
+    font-weight: 500;
   }
   
   .headerMenuLink::after {
@@ -26,7 +31,7 @@
     height: 2px;
     bottom: 0;
     left: 0;
-    background-color: #3d4144;
+    background-color: #454ce1;
     transform-origin: bottom right;
     transition: transform 0.25s ease-out;
   }
