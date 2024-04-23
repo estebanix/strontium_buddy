@@ -2,14 +2,11 @@
     width: 100%;
     height: 60px;
     background-color: transparent;
-}
-
-.headerMenuItemBox{
-    width: 30%;
-    height: 100%;
+    color: #3C3C43;
+    background-color: aqua;
     display: flex;
-    justify-content: space-around;
     align-items: center;
+    justify-content: space-around;
 }
 
 .headerMenuLink {
@@ -18,7 +15,7 @@
     cursor: pointer;
     padding-bottom: 3px;
     color: #3d4144;
-    font-size: 1.2em;
+    font-size: 1.1em;
   }
   
   .headerMenuLink::after {
