@@ -5,6 +5,8 @@ import { HeroSection } from "../../components/HeroSection";
 import homeCards from "./../../utils/constans/homeCards.json";
 
 import styles from "./HomePage.module.scss";
+import { Box } from "../../components/Box/Box";
+import { Article } from "../../components/Article";
 
 export const HomePage = () => {
   return (
@@ -14,7 +16,9 @@ export const HomePage = () => {
         <HeroSection />
         <div className={styles.cardsContainer}>
             {homeCards.map((card) => {
-             return <p>a</p>
+             return <Box>
+              <Article title={card.title} text={card.description} icon={card.icon} />
+             </Box>
             })}
         </div>
       </Section>

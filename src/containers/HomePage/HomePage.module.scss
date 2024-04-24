@@ -5,9 +5,10 @@
 }
 
 .cardsContainer{
-  width: 80%;
+  width: 74%;
   height: auto;
   display: grid;
   grid-template-columns: repeat(3, 1fr); 
   gap: 20px;
+  margin: 2.5% 0;
 }

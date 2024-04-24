@@ -1,17 +1,19 @@
 .articleContainer {
-    width: 60%;
-    margin: 50px 10%;
+    width: 80%;
+    margin: 2% 5%;
     height: auto;
     padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
 }
 
 .articleTitle {
-    font-size: 3em;
-    padding-bottom: 30px;
+    font-size: 1.2vw;
 }
 
 .articleParag {
-    font-size: 1.2em;
+    font-size: 1vw;
     line-height: 1.8em;
 }
 

@@ -1,33 +1,32 @@
 [
-    {
-      "title": "Instant Server Start",
-      "description": "On demand file serving over native ESM, no bundling required!",
-      "icon": "⚡️"
-    },
-    {
-      "title": "Lightning Fast HMR",
-      "description": "Hot Module Replacement (HMR) that stays fast regardless of app size.",
-      "icon": "⚡️"
-    },
-    {
-      "title": "Rich Features",
-      "description": "Out-of-the-box support for TypeScript, JSX, CSS and more.",
-      "icon": "🛠️"
-    },
-    {
-      "title": "Optimized Build",
-      "description": "Pre-configured Rollup build with multi-page and library mode support.",
-      "icon": "📦"
-    },
-    {
-      "title": "Universal Plugins",
-      "description": "Rollup-superset plugin interface shared between dev and build.",
-      "icon": "🔩"
-    },
-    {
-      "title": "Fully Typed APIs",
-      "description": "Flexible programmatic APIs with full TypeScript typing.",
-      "icon": "🔑"
-    }
-  ]
-  
+  {
+    "title": "Streamlined Data Processing",
+    "description": "Efficiently process isotopic data for bioarchaeology with ease.",
+    "icon": "🔬"
+  },
+  {
+    "title": "Visualize Insights",
+    "description": "Transform raw isotopic data into insightful visualizations for analysis.",
+    "icon": "📊"
+  },
+  {
+    "title": "User-Friendly Interface",
+    "description": "Intuitive interface designed for users without coding experience.",
+    "icon": "🖥️"
+  },
+  {
+    "title": "Seamless Integration",
+    "description": "Easily integrate isotopic data into your research workflow.",
+    "icon": "🔗"
+  },
+  {
+    "title": "Comprehensive Documentation",
+    "description": "Access detailed documentation to guide you through the isotopic analysis process.",
+    "icon": "📚"
+  },
+  {
+    "title": "Customizable Settings",
+    "description": "Tailor the app to your specific research needs with customizable settings.",
+    "icon": "⚙️"
+  }
+]
