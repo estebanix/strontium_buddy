@@ -1,0 +1,16 @@
+.heroSectionContainer {
+  width: 76%;
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.title {
+  background: linear-gradient(45deg, #7a0ce2, #82f5ef);
+  -webkit-background-clip: text; 
+  -webkit-text-fill-color: transparent; 
+  background-clip: text;
+  color: transparent;
+  font-size: 4em;
+}

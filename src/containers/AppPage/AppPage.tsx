@@ -26,7 +26,7 @@ export const AppPage = () => {
           <>
             <DescriptiveTable />
             <PlotContainer />
-            <Container>
+            <Container border={true}>
               <ColumnRender renderData={data} dynamic={true} />
               <MapPlot data={dataMap} width={350} height={350} />
             </Container>
