@@ -3,3 +3,11 @@
   min-height: 100vh;
   background-color: #ffffff;
 }
+
+.cardsContainer{
+  width: 80%;
+  height: auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); 
+  gap: 20px;
+}

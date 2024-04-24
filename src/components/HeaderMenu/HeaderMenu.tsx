@@ -10,7 +10,7 @@ export const HeaderMenu = () => {
   return (
     <div className={styles.headerMenuContainer}>
         <Image src={headerLogo} size={40} />
-        <h4>SrBuddy</h4>
+        <h4>SrVision</h4>
       <div className={styles.headerOptionsBox}>
         <BoxRow gapWidth={30}>
           {headerMenuItems.map((item, index) => {

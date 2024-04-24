@@ -1,5 +1,5 @@
 import { Image } from "../Image";
-import logo from "./../../../public/images/logo-with-shadow.png";
+import logo from "./../../../public/images/neologo.png";
 import { BoxRow } from "../BoxRow";
 import { Button } from "../Button";
 
@@ -20,7 +20,7 @@ export const HeroSection = () => {
           <Button text="GitHub" colorVariant="secondary" />
         </BoxRow>
       </div>
-      <Image src={logo} size={350} />
+      <Image src={logo} size={400} />
     </div>
   );
 };
