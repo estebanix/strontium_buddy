@@ -4,6 +4,8 @@ import { Context } from "../../context/Context";
 import { DataRow } from "../../utils/types/types";
 import * as XLSX from "xlsx";
 import ReactPaginate from "react-paginate";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faFileArrowUp } from "@fortawesome/free-solid-svg-icons";
 
 import styles from "./DataUploader.module.scss";
 
@@ -61,19 +63,25 @@ export const DataUploader = () => {
 
   return (
     <div className={styles.dataUploaderContainer}>
-      <input
-        id="fileInput"
-        type="file"
-        accept=".xlsx, .xls"
-        onChange={handleFileUpload}
-        style={{ display: "none" }}
-      />
+      {data.length == 0 && (
+        <div className={styles.uploadBox}>
+          <FontAwesomeIcon icon={faFileArrowUp} />
+          <h1>Upload your data</h1>
+          <input
+            id="fileInput"
+            type="file"
+            accept=".xlsx, .xls"
+            onChange={handleFileUpload}
+            style={{ display: "none" }}
+          />
 
-      <Button
-        colorVariant="secondary"
-        text="Upload"
-        reaction={handleButtonClick}
-      />
+          <Button
+            colorVariant="secondary"
+            text="Browse Files"
+            reaction={handleButtonClick}
+          />
+        </div>
+      )}
 
       {data.length > 0 && (
         <>

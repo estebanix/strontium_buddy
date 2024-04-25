@@ -5,6 +5,21 @@
   justify-content: center;
   align-items: center;
   gap: 2em;
+  margin: auto 0;
+  color: #3d4144;
+}
+
+.uploadBox {
+  width: 50%;
+  height: auto;
+  border: 2px dashed blueviolet;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  padding: 4em 2em;
+  gap: 2em;
 }
 
 .table {
@@ -60,4 +75,9 @@
 .activePage {
   background-color: #454ce150;
   color: black;
+}
+
+svg {
+  color:#3d4144;
+  font-size: 5em;
 }
