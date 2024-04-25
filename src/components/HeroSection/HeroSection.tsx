@@ -1,5 +1,5 @@
 import { Image } from "../Image";
-import logo from "./../../../public/images/neologo.png";
+import logo from "./../../../public/images/earth.png";
 import { BoxRow } from "../BoxRow";
 import { Button } from "../Button";
 
@@ -17,7 +17,11 @@ export const HeroSection = () => {
         </p>
         <BoxRow gapWidth={30}>
           <Button text="Get started" colorVariant="primary" />
-          <Button text="GitHub" colorVariant="secondary" />
+          <Button
+            text="GitHub"
+            colorVariant="secondary"
+            link={"https://github.com/estebanix/strontium_buddy"}
+          />
         </BoxRow>
       </div>
       <Image src={logo} size={400} />
